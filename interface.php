@@ -78,7 +78,7 @@ abstract class Produk{
         return "$this->penulis, $this->penerbit";
     }
 
-    abstract public function get();
+    abstract public function getNone();
 
     public function getInfo()
     {
@@ -105,6 +105,11 @@ class Komik extends Produk implements InfoProduk
         return $str;
         
     }
+
+    public function getNone()
+    {
+        echo "Komik";
+    }
 }
 
 class Game extends Produk implements InfoProduk
@@ -121,6 +126,11 @@ class Game extends Produk implements InfoProduk
         $str = "Game : " . $this->getInfo() . " ~ {$this->waktuMain} jam";
         return $str;
         
+    }
+
+    public function getNone()
+    {
+        echo "Game";
     }
 }
 
@@ -154,5 +164,3 @@ class CetakInfoProduk
 // $cetakProduk->tambahProduk($produk2);
 
 // echo $cetakProduk->getCetak();
-
-$test = new Produk();
